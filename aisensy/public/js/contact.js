@@ -54,6 +54,7 @@ async function whatsapp_dialog(frm){
         }
         }
         
+        var lname=await frm.doc.first_name ? await frm.doc.first_name: await frm.doc.customer_name;
 
         let d = new frappe.ui.Dialog({
             'title': 'Send Message',
@@ -77,12 +78,12 @@ async function whatsapp_dialog(frm){
                     'label': 'Customer Name',
                     'fieldtype': 'Data',
                     'reqd': 1,
-                    'default': 'Abhi',
+                    'default': lname,
                 },
                 {
                     'fieldname': 'customer_numbers',
                     'label': 'Customer Number',
-                    'fieldtype': 'Select',
+                    'fieldtype': 'MultiSelect',
                     'options': mobileNumbers,
                     'reqd': 1,
                     'description': 'Format: +917888187242, +17888187242,',
