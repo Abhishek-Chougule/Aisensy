@@ -82,7 +82,7 @@ async function whatsapp_dialog(frm){
                 {
                     'fieldname': 'customer_numbers',
                     'label': 'Customer Number',
-                    'fieldtype': 'Select',
+                    'fieldtype': 'MultiSelect',
                     'options': mobileNumbers,
                     'reqd': 1,
                     'description': 'Format: +917888187242, +17888187242,',
