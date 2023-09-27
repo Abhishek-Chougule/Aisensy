@@ -34,7 +34,7 @@ async function whatsapp_dialog(frm){
         var mobileNumber=''
         for (var prop in temp) {
         if (frappe.meta.has_field(frm.doc.doctype, prop) && frappe.meta.get_field(frm.doc.doctype, prop).options === 'Phone'){
-            console.log(temp[prop])
+            // console.log(temp[prop])
             
             if((temp[prop]).length===10)
             {
@@ -110,11 +110,11 @@ async function whatsapp_dialog(frm){
                                 filters: { 'name': this.value }
                             },
                             callback: function (r) {
-                                console.log("Response from frappe.call:", r);
+                                // console.log("Response from frappe.call:", r);
                         
                                 if (r && r.message && typeof r.message === 'object') {
                                     var campaign = r.message;
-                                    console.log(campaign);
+                                    // console.log(campaign);
                                     var template_format = campaign.template_format;
                                     var template_footer = campaign.template_footer;
                                     d.set_value('template_message', template_format + template_footer);
@@ -196,7 +196,7 @@ async function whatsapp_dialog(frm){
                 
                 var atoken = await frappe.db.get_value('Aisensy Settings', values.select_account, 'authentication_token');
                 var authentication_token= atoken.message.authentication_token;
-                console.log(authentication_token);
+                // console.log(authentication_token);
                 let base_url = 'https://backend.aisensy.com/campaign/t1/api';
 
                 let campaign;
